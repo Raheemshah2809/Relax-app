@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     TextView month, day, year;
-    private static final long START_TIME_IN_MILLIS = 60000;
+    private static final long START_TIME_IN_MILLIS = 600000;
 
     private TextView mTextViewCountDown;
     private Button mButtonStartPause;
@@ -57,54 +57,51 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 resetTimer();
+            }
+        });
+    }
 
+
+    private void startTimer() {
+        mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mTimeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
             }
 
-            updateCountDownText();
-        });
+            @Override
+            public void onFinish() {
+
+                mTimerRunning = false;
+                mButtonStartPause.setText("start");
+                mButtonStartPause.setVisibility(View.INVISIBLE);
+                mButtonReset.setVisibility(View.VISIBLE);
+            }
 
 
-        private void startTimer () {
-            mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-                    mTimeLeftInMillis = millisUntilFinished;
-                    updateCountDownText();
+        }.start();
 
-                }
+        mTimerRunning = true;
+        mButtonStartPause.setText("pause");
+        mButtonReset.setVisibility(View.INVISIBLE);
+    }
 
-                @Override
-                public void onFinish() {
-
-                    mTimerRunning = false;
-                    mButtonStartPause.setText("start");
-                    mButtonStartPause.setVisibility(View.INVISIBLE);
-                    mButtonReset.setVisibility(View.VISIBLE);
-                }
+    private void pauseTimer() {
+        mCountDownTimer.cancel();
+        mTimerRunning = false;
+        mButtonStartPause.setText("Start");
+        mButtonReset.setVisibility(View.VISIBLE);
+    }
 
 
-            }.start();
+    private void resetTimer() {
+        mTimeLeftInMillis = START_TIME_IN_MILLIS;
+        updateCountDownText();
+        mButtonReset.setVisibility(View.INVISIBLE);
+        mButtonStartPause.setVisibility(View.VISIBLE);
 
-            mTimerRunning = true;
-            mButtonStartPause.setText("pause");
-            mButtonReset.setVisibility(View.INVISIBLE);
-        }
-
-        private void pauseTimer () {
-            mCountDownTimer.cancel();
-            mTimerRunning = false;
-            mButtonStartPause.setText("Start");
-            mButtonReset.setVisibility(View.INVISIBLE);
-        }
-
-
-        private void resetTimer () {
-            mTimeLeftInMillis = START_TIME_IN_MILLIS;
-            updateCountDownText();
-            mButtonReset.setVisibility(View.INVISIBLE);
-            mButtonStartPause.setVisibility(View.VISIBLE);
-
-        }
+    }
 
     private void updateCountDownText(){
         int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
@@ -114,10 +111,6 @@ public class MainActivity extends AppCompatActivity {
 
         mTextViewCountDown.setText(timeLeftFormatted);
 
-    }
-
-    }
-
         month =findViewById(R.id.month);
         day =findViewById(R.id.day);
         year =findViewById(R.id.year);
@@ -125,9 +118,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         Date currentTime = Calendar.getInstance().getTime();
-         String formattedDate =DateFormat.getDateInstance(DateFormat.FULL).format(currentTime);
+        String formattedDate =DateFormat.getDateInstance(DateFormat.FULL).format(currentTime);
 
-         String[] splitDate = formattedDate.split(",");
+        String[] splitDate = formattedDate.split(",");
 
         Log.d("myLOG", formattedDate);
         Log.d("myLOG", currentTime.toString());
