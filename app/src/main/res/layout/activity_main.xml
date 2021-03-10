@@ -11,13 +11,13 @@
         android:id="@+id/edit_text_input"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="287dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="269dp"
         android:hint="Minutes"
         android:inputType="number"
         android:maxLength="4" />
-
 
     <Button
         android:id="@+id/button_set"
@@ -25,18 +25,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="284dp"
-        android:layout_marginEnd="53dp"
+        android:layout_marginTop="268dp"
+        android:layout_marginEnd="84dp"
         android:text="set" />
 
     <TextView
         android:id="@+id/day"
-        android:layout_width="118dp"
-        android:layout_height="34dp"
-        android:layout_marginEnd="36dp"
+        android:layout_width="141dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="13dp"
         android:layout_toStartOf="@+id/month"
         android:text="TextView"
-        android:textSize="25sp"
+        android:textSize="20sp"
         tools:layout_editor_absoluteX="40dp"
         tools:layout_editor_absoluteY="27dp" />
 
@@ -47,7 +47,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="4dp"
         android:text="TextView"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/day"
         app:layout_constraintStart_toEndOf="@+id/day" />
 
@@ -61,7 +61,7 @@
         android:layout_marginEnd="9dp"
         android:layout_toEndOf="@+id/month"
         android:text="TextView"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/month"
         app:layout_constraintStart_toEndOf="@+id/month" />
 
@@ -73,12 +73,11 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="102dp"
         android:text="00:00"
         android:textColor="@android:color/black"
-        android:textSize="60sp" />
-
+        android:textSize="70sp" />
 
     <Button
         android:id="@+id/button_start_pause"
@@ -87,8 +86,8 @@
         android:layout_below="@id/text_view_countdown"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginStart="119dp"
+        android:layout_marginTop="6dp"
         android:text="start" />
 
     <Button
@@ -97,12 +96,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="213dp"
-        android:layout_marginEnd="98dp"
+        android:layout_marginTop="201dp"
+        android:layout_marginEnd="102dp"
         android:text="Reset"
         android:visibility="invisible"
-        tools:visibility="invisible"
-        />
+        tools:visibility="invisible" />
 
 
 </RelativeLayout>
