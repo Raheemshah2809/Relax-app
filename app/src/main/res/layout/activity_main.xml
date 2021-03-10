@@ -7,6 +7,28 @@
     tools:context=".MainActivity">
 
 
+    <EditText
+        android:id="@+id/edit_text_input"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="287dp"
+        android:hint="Minutes"
+        android:inputType="number"
+        android:maxLength="4" />
+
+
+    <Button
+        android:id="@+id/button_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="53dp"
+        android:text="set" />
+
     <TextView
         android:id="@+id/day"
         android:layout_width="118dp"
