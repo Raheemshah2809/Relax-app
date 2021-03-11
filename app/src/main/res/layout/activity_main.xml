@@ -29,16 +29,6 @@
         android:layout_marginEnd="84dp"
         android:text="set" />
 
-    <TextView
-        android:id="@+id/day"
-        android:layout_width="141dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="13dp"
-        android:layout_toStartOf="@+id/month"
-        android:text="TextView"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="27dp" />
 
     <TextView
         android:id="@+id/month"
@@ -48,22 +38,10 @@
         android:layout_marginStart="4dp"
         android:text="TextView"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/day"
-        app:layout_constraintStart_toEndOf="@+id/day" />
 
-    <TextView
-        android:id="@+id/year"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="44dp"
-        android:layout_marginEnd="9dp"
-        android:layout_toEndOf="@+id/month"
-        android:text="TextView"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/month"
-        app:layout_constraintStart_toEndOf="@+id/month" />
+         />
+
+
 
 
     <TextView

@@ -220,8 +220,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         month =findViewById(R.id.month);
-        day =findViewById(R.id.day);
-        year =findViewById(R.id.year);
+
 
 
 
@@ -233,14 +232,14 @@ public class MainActivity extends AppCompatActivity {
         Log.d("myLOG", formattedDate);
         Log.d("myLOG", currentTime.toString());
 
-        month.setText(splitDate[1]);
-        day.setText(splitDate[0]);
+        month.setText(formattedDate);
+        /*day.setText(splitDate[0]);
         year.setText(splitDate[2]);
 
 
         Log.d("myLOG", splitDate[0].trim());
         Log.d("myLOG", splitDate[1].trim());
-        Log.d("myLOG", splitDate[2].trim());
+        Log.d("myLOG", splitDate[2].trim());*/
 
     }
 }

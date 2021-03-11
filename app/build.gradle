@@ -3,17 +3,32 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        Release {
+            storeFile file('/Users/raheem/Documents/Personal FIles/Untitled')
+            storePassword 'Boxer2809'
+            keyAlias 'key2809'
+            keyPassword 'Boxer2809'
+        }
+        debug {
+            storeFile file('/Users/raheem/Documents/Personal FIles/Untitled')
+            storePassword 'Boxer2809'
+            keyAlias 'key2809'
+            keyPassword 'Boxer2809'
+        }
+    }
     compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    buildToolsVersion '30.0.3'
 
     defaultConfig {
         applicationId "com.fluorescentideas.relax"
-        minSdkVersion 24
+        minSdkVersion 25
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0"
+        versionName '1.1'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.Release
     }
 
     buildTypes {
