@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
+    android:background="#000537"
     tools:context=".MainActivity">
 
 
@@ -17,7 +19,9 @@
         android:layout_marginTop="269dp"
         android:hint="Minutes"
         android:inputType="number"
-        android:maxLength="4" />
+        android:maxLength="4"
+        android:textColor="@color/white"
+        />
 
     <Button
         android:id="@+id/button_set"
@@ -27,6 +31,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="268dp"
         android:layout_marginEnd="84dp"
+        android:textColor="@color/white"
         android:text="set" />
 
 
@@ -37,11 +42,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="4dp"
         android:text="TextView"
-        android:textSize="20sp"
-
-         />
-
-
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
 
     <TextView
@@ -54,7 +56,7 @@
         android:layout_marginStart="117dp"
         android:layout_marginTop="102dp"
         android:text="00:00"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="70sp" />
 
     <Button
@@ -64,9 +66,11 @@
         android:layout_below="@id/text_view_countdown"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="119dp"
-        android:layout_marginTop="6dp"
-        android:text="start" />
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="266dp"
+        android:text="start"
+        android:textColor="@color/white"
+        android:textSize="10sp" />
 
     <Button
         android:id="@+id/button_reset"
@@ -74,9 +78,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="201dp"
-        android:layout_marginEnd="102dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="462dp"
+        android:layout_marginEnd="56dp"
+        android:layout_toEndOf="@+id/button_start_pause"
         android:text="Reset"
+        android:textColor="@color/white"
+        android:textSize="10sp"
         android:visibility="invisible"
         tools:visibility="invisible" />
 
