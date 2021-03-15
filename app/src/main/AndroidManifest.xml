@@ -11,9 +11,7 @@
         android:theme="@style/Theme.Relax">
         <activity android:name=".SplashScreen"
 
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-
-            >
+            android:theme="@style/SplashTheme">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
