@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000537"
+    android:background="@color/white"
     tools:context=".MainActivity2">
 
     <Button
@@ -13,57 +13,62 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="664dp"
         android:text="Home"
         android:textColor="@color/white"
         android:textSize="10sp"
         app:backgroundTint="@color/LightSalmon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.157" />
 
     <Button
         android:id="@+id/btn_getCityID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="92dp"
+        android:layout_height="46dp"
         android:layout_alignParentStart="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:text="GetCityId"
         android:textColor="@color/white"
-        android:textSize="10sp"
+        android:textSize="8sp"
         app:backgroundTint="@color/LightSalmon"
         app:layout_constraintBottom_toBottomOf="@+id/btn_getWeatherByCityID"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_getWeatherByCityID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="119dp"
+        android:layout_height="46dp"
         android:layout_alignParentStart="true"
         android:layout_centerInParent="true"
         android:layout_marginStart="296dp"
         android:layout_marginTop="24dp"
-        android:text="WeatherByCity"
+        android:text="WeatherByCityID"
         android:textColor="@color/white"
-        android:textSize="10sp"
+        android:textSize="8sp"
         app:backgroundTint="@color/LightSalmon"
         app:layout_constraintEnd_toStartOf="@id/btn_getCityID"
-        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintHorizontal_bias="0.709"
         app:layout_constraintStart_toEndOf="@id/btn_getWeatherByCityName"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_getWeatherByCityName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="119dp"
+        android:layout_height="46dp"
         android:layout_alignParentStart="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="248dp"
+        android:layout_marginStart="264dp"
         android:layout_marginTop="24dp"
         android:text="WeatherByCityName"
         android:textColor="@color/white"
-        android:textSize="10sp"
+        android:textSize="7sp"
         app:backgroundTint="@color/LightSalmon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -74,26 +79,48 @@
         android:layout_height="44dp"
         android:layout_marginTop="96dp"
         android:ems="10"
-        android:hint=" Enter City Name"
+        android:hint=" Enter City Name Or CityID"
         android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="#F6F6F6"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_getCityID" />
+
+
 
     <ListView
         android:id="@+id/lv_weatherReports"
         android:layout_width="405dp"
         android:layout_height="428dp"
         android:layout_marginTop="8dp"
-        android:background="#FDFDFD"
         android:cacheColorHint="#8A6E6E"
-        android:textColor="@color/white"
-        android:textColorHint="#F6F6F6"
-        app:layout_constraintTop_toBottomOf="@+id/et_dataInput"
-        tools:layout_editor_absoluteX="3dp" />
+        android:textColor="@color/Black"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/homepage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@+id/et_dataInput" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="377dp"
+        android:layout_height="41dp"
+        android:fontFamily="@font/roboto_thin"
+        android:text="Enter City Name or A City ID And Use The Correct Buttons."
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_dataInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_getWeatherByCityID" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

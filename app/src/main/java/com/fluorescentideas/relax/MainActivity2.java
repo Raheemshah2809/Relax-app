@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -27,6 +28,8 @@ import org.json.JSONObject;
 import java.net.URL;
 import java.util.List;
 
+import es.dmoral.toasty.Toasty;
+
 public class MainActivity2 extends AppCompatActivity {
 
     Button button;
@@ -39,6 +42,7 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
 
         Button button = (Button) findViewById(R.id.homepage);
 
@@ -54,6 +58,8 @@ public class MainActivity2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
         final WeatherDataService weatherDataService = new WeatherDataService(MainActivity2.this);
         et_dataInput = findViewById(R.id.et_dataInput);
         btn_getCityID = findViewById(R.id.btn_getCityID);
@@ -69,12 +75,14 @@ public class MainActivity2 extends AppCompatActivity {
                 weatherDataService.getCityID(et_dataInput.getText().toString(), new WeatherDataService.VolleyResponseListener() {
                     @Override
                     public void onError(String message) {
-                        Toast.makeText(MainActivity2.this, "No Cities Found Error, Please try again", Toast.LENGTH_SHORT).show();
+                        Toasty.error(MainActivity2.this, "Please Enter City",Toasty.LENGTH_LONG).show();
+                        //Toast.makeText(MainActivity2.this, "No Cities Found, Please Enter City", Toast.LENGTH_SHORT).show(); Original Toast
                     }
 
                     @Override
                     public void onResponse(String cityID) {
-                        Toast.makeText(MainActivity2.this, "Returned ID " + cityID, Toast.LENGTH_SHORT).show();
+                        Toasty.success(MainActivity2.this,"Returned ID" +(et_dataInput.getText().toString()),Toasty.LENGTH_LONG).show();
+                        //Toast.makeText(MainActivity2.this, "Returned ID " + cityID, Toast.LENGTH_SHORT).show(); Original Toast
                     }
                 });
 
@@ -90,12 +98,17 @@ public class MainActivity2 extends AppCompatActivity {
                 weatherDataService.getCityForecastByID(et_dataInput.getText().toString(), new WeatherDataService.ForeCastByIDResponse() {
                     @Override
                     public void onError(String message) {
-                        Toast.makeText(MainActivity2.this, "No Cities Found Error, Please try again", Toast.LENGTH_SHORT).show();
+
+                        Toasty.error(MainActivity2.this, "Wrong City Id , Please Try Again"+ et_dataInput.getText().toString()
+                                ,Toasty.LENGTH_LONG).show();
+                        //Toast.makeText(MainActivity2.this, "No Cities Found Error, Please try again", Toast.LENGTH_SHORT).show();
 
                     }
 
                     @Override
                     public void onResponse(List<WeatherReportModel> weatherReportModels) {
+
+                        Toasty.success(MainActivity2.this,"Returned Weather" + et_dataInput.getText().toString(),Toasty.LENGTH_LONG).show();
 
 
                         ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity2.this, android.R.layout.simple_list_item_1,weatherReportModels);
@@ -119,12 +132,16 @@ public class MainActivity2 extends AppCompatActivity {
                 weatherDataService.getCityForecastByName(et_dataInput.getText().toString(), new WeatherDataService.GetCityForecastByNameCallback() {
                     @Override
                     public void onError(String message) {
-                        Toast.makeText(MainActivity2.this, "No Cities Found Error, Please try again", Toast.LENGTH_SHORT).show();
+                        Toasty.error(MainActivity2.this, "No Cities Found, Please Enter City" + et_dataInput.getText().toString(),
+                                Toasty.LENGTH_LONG).show();
+                        //Toast.makeText(MainActivity2.this, "No Cities Found Error, Please try again", Toast.LENGTH_SHORT).show();
 
                     }
 
                     @Override
                     public void onResponse(List<WeatherReportModel> weatherReportModels) {
+
+                        Toasty.success(MainActivity2.this,"Returned Weather" + et_dataInput.getText().toString(),Toasty.LENGTH_LONG).show();
 
 
                         ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity2.this, android.R.layout.simple_list_item_1,weatherReportModels);
@@ -149,7 +166,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 
 
-
+                    // below here is the old code i was testing with, and above is the code i refactoerd and cleaned up, this is for demostartion purposes only.
 
 
                         //Instantiate the RequestQueue.

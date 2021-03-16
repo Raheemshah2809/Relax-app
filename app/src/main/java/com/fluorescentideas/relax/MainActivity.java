@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import es.dmoral.toasty.Toasty;
+
 public class MainActivity extends AppCompatActivity {
     private EditText mEditTextInput;
     private TextView mTextViewCountDown;
@@ -33,10 +36,13 @@ public class MainActivity extends AppCompatActivity {
     private long mTimeLeftInMillis;
     private long mEndTime;
 
+    MediaPlayer mySong;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mySong=MediaPlayer.create(MainActivity.this,R.raw.audio_a0486ef81f);
 
         Button button = (Button) findViewById(R.id.weather);
 
@@ -50,7 +56,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
                 startActivity(intent);
             }
+
+//            public void mySong(View v) {
+//               mySong.start();
+//
+//
+//            }
         });
+
+
 
 
 
@@ -66,13 +80,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String input = mEditTextInput.getText().toString();
                 if (input.length() == 0) {
-                    Toast.makeText(MainActivity.this, "Field can't be empty", Toast.LENGTH_SHORT).show();
+                    Toasty.warning(MainActivity.this, "Field can't be empty", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "Field can't be empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 long millisInput = Long.parseLong(input) * 60000;
                 if (millisInput == 0) {
-                    Toast.makeText(MainActivity.this, "Please enter a positive number", Toast.LENGTH_SHORT).show();
+                    Toasty.warning(MainActivity.this, "Please enter a positive number", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "Please enter a positive number", Toast.LENGTH_SHORT).show();
                     return;
                 }
 

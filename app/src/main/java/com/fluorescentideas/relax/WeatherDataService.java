@@ -18,6 +18,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.dmoral.toasty.Toasty;
+
 public class WeatherDataService {
 
     public static final String QUERY_FOR_CITY_ID = "https://www.metaweather.com/api/location/search/?query=";
@@ -52,8 +54,14 @@ public class WeatherDataService {
                     e.printStackTrace();
                 }
 
+                Toasty.success(context, "City ID Found" + cityID,
+                        Toasty.LENGTH_LONG).show();
 
-                Toast.makeText(context, "city ID=" + cityID, Toast.LENGTH_SHORT).show();
+
+
+
+
+                //Toast.makeText(context, "city ID=" + cityID, Toast.LENGTH_SHORT).show();
 
                 volleyResponseListener.onResponse(cityID);
 
@@ -61,8 +69,11 @@ public class WeatherDataService {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-                volleyResponseListener.onError("Error");
+
+                Toasty.error(context, "No Cities Found, Please Enter A CityID or a City Name" ,
+                        Toasty.LENGTH_LONG).show();
+                //Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                //volleyResponseListener.onError("Error");
             }
         });
 
@@ -146,6 +157,9 @@ public interface GetCityForecastByNameCallback{
         getCityID(cityName, new VolleyResponseListener() {
             @Override
             public void onError(String message) {
+
+
+
 
             }
 
