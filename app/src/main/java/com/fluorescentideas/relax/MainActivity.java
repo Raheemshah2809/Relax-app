@@ -2,6 +2,7 @@ package com.fluorescentideas.relax;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.CountDownTimer;
 import android.os.Bundle;
@@ -26,9 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private Button mButtonReset;
     TextView month, day, year;
     private CountDownTimer mCountDownTimer;
-
+    private Button  button;
     private boolean mTimerRunning;
-
     private long mStartTimeInMillis;
     private long mTimeLeftInMillis;
     private long mEndTime;
@@ -37,6 +37,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button button = (Button) findViewById(R.id.weather);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity2();
+
+            }
+            public void openActivity2(){
+                Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         mEditTextInput = findViewById(R.id.edit_text_input);
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
@@ -62,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
                 setTime(millisInput);
                 mEditTextInput.setText("");
+
+             
             }
         });
 
@@ -144,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         if (mTimerRunning) {
             mEditTextInput.setVisibility(View.INVISIBLE);
             mButtonSet.setVisibility(View.INVISIBLE);
-            mButtonReset.setVisibility(View.VISIBLE);
+            mButtonReset.setVisibility(View.INVISIBLE);
             mButtonStartPause.setText("Pause");
         } else {
             mEditTextInput.setVisibility(View.VISIBLE);
